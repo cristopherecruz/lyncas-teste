@@ -1,0 +1,12 @@
+#
+#Thu Oct 22 12:46:34 BRT 2020
+derivedResources=.gradle;build;configuration/build;models/build;persistence/build;rest-api-spring/build;use-cases/build
+linkedResources=
+classpath=<?xml version\="1.0" encoding\="UTF-8"?>\n<classpath>\n</classpath>\n
+managedNatures=
+buildDir=build
+managedBuilders=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><commands/>
+buildScriptPath=build.gradle
+subprojectPaths=configuration;models;persistence;rest-api-spring;use-cases
+hasAutoBuildTasks=false
+gradleVersion=5.6.4
