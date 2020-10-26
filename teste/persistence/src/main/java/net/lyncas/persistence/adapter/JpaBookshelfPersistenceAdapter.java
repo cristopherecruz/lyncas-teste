@@ -15,6 +15,10 @@ public class JpaBookshelfPersistenceAdapter implements BookshelfPersistenceAdapt
 
 	private BookshelfRepository bookshelfRepository;
 
+	public JpaBookshelfPersistenceAdapter(BookshelfRepository bookshelfRepository) {
+		this.bookshelfRepository = bookshelfRepository;
+	}
+
 	@Override
 	public Optional<Bookshelf> findById(UUID id) {
 		return bookshelfRepository.findById(id).map(BookshelfEntity::toDomain);
@@ -23,6 +27,11 @@ public class JpaBookshelfPersistenceAdapter implements BookshelfPersistenceAdapt
 	@Override
 	public Bookshelf update(Bookshelf bookshelfFiltrada) {
 		return bookshelfRepository.save(BookshelfEntity.fromDomain(bookshelfFiltrada)).toDomain();
+	}
+
+	@Override
+	public Bookshelf save(Bookshelf bookshelf) {
+		return bookshelfRepository.save(BookshelfEntity.fromDomain(bookshelf)).toDomain();
 	}
 
 }

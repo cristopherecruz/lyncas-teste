@@ -19,4 +19,8 @@ public class VolumeService {
 		return createVolumeUseCase.save(volume);
 	}
 
+	public void findByVolumeId(String id) {
+		
+	}
+	
 }

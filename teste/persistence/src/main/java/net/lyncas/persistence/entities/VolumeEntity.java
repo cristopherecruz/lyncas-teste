@@ -22,6 +22,9 @@ public class VolumeEntity {
 	private String thumbnail;
 	private String description;
 	private String title;
+	
+	public VolumeEntity() {
+	}
 
 	public VolumeEntity(UUID id, String volumeId, String thumbnail, String description, String title) {
 		this.id = id;

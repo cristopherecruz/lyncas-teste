@@ -14,9 +14,8 @@ public class Bookshelf {
 		this.nome = nome;
 		this.volumes = volumes;
 	}
-	
-	public Bookshelf(String nome, List<Volume> volumes) {
-		this.nome = nome;
+
+	public Bookshelf(List<Volume> volumes) {
 		this.volumes = volumes;
 	}
 

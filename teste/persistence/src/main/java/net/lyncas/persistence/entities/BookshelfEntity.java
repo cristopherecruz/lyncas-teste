@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,8 +24,11 @@ public class BookshelfEntity {
 
 	private String nome;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<VolumeEntity> volumes;
+
+	public BookshelfEntity() {
+	}
 
 	public BookshelfEntity(UUID id, String nome, List<VolumeEntity> volumes) {
 		this.id = id;
@@ -71,5 +75,5 @@ public class BookshelfEntity {
 	public void setVolumes(List<VolumeEntity> volumes) {
 		this.volumes = volumes;
 	}
-
+	
 }

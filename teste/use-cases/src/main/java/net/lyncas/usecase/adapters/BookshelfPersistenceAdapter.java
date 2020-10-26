@@ -11,4 +11,6 @@ public interface BookshelfPersistenceAdapter {
 
 	Bookshelf update(Bookshelf bookshelfFiltrada);
 
+	Bookshelf save(Bookshelf bookshelf);
+
 }

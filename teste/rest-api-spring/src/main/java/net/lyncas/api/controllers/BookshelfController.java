@@ -8,32 +8,46 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import net.lyncas.api.controllers.dto.BookshelfDto;
 import net.lyncas.api.controllers.form.BookshelfForm;
 import net.lyncas.api.controllers.resource.BookshelfResource;
+import net.lyncas.domain.entity.Bookshelf;
 import net.lyncas.usecase.services.BookshelfService;
+import net.lyncas.usecase.services.VolumeService;
 
 @Controller
 public class BookshelfController implements BookshelfResource {
 
+	
 	private BookshelfService bookshelfService;
+	private VolumeService volumeService;
 
 	@Autowired
-	public BookshelfController(BookshelfService bookshelfService) {
+	public BookshelfController(BookshelfService bookshelfService, VolumeService volumeService) {
 		this.bookshelfService = bookshelfService;
+		this.volumeService = volumeService;
 	}
 
 	@Override
-	public ResponseEntity<BookshelfDto> updateBookshelf(@PathVariable UUID id, @Valid BookshelfForm bookshelfForm, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<BookshelfDto> createBookshelf(@Valid BookshelfForm bookshelfForm, UriComponentsBuilder uriBuilder) {
+		
+		Bookshelf bookshelf = bookshelfForm.toBookshelf();
+		
+		Bookshelf newBookshelf = bookshelfService.save(bookshelf);
+		
+		URI uri = uriBuilder.path("/bookshelf").buildAndExpand(newBookshelf.getId()).toUri();
+		
+		return ResponseEntity.created(uri).body(new BookshelfDto(newBookshelf));
+	}
+	
+	@Override
+	public ResponseEntity<BookshelfDto> updateBookshelf(UUID id, BookshelfForm bookshelfForm) {
 		
 		var bookshelfEditada = bookshelfService.update(id, bookshelfService, bookshelfForm.toBookshelf());
 		
-		URI uri = uriBuilder.path("/bookshelf").buildAndExpand(bookshelfEditada.getId()).toUri();
-		
-		return ResponseEntity.created(uri).body(new BookshelfDto(bookshelfEditada));
+		return ResponseEntity.ok(new BookshelfDto(bookshelfEditada));
 	}
 
 }

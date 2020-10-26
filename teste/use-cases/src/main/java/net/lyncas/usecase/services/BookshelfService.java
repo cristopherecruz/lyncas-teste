@@ -7,18 +7,19 @@ import org.springframework.stereotype.Service;
 
 import net.lyncas.domain.entity.Bookshelf;
 import net.lyncas.usecase.adapters.BookshelfPersistenceAdapter;
-import net.lyncas.usecase.adapters.VolumePersistenceAdapter;
+import net.lyncas.usecase.usecases.bookshelf.CreateBookshelfUseCase;
 import net.lyncas.usecase.usecases.bookshelf.FindBookshelfUseCase;
 import net.lyncas.usecase.usecases.bookshelf.UpdateBookshelfUseCase;
 
 @Service
 public class BookshelfService {
 
+	private CreateBookshelfUseCase createBookshelfUseCase;
 	private UpdateBookshelfUseCase updateBookshelfUseCase;
 	private FindBookshelfUseCase findBookshelfUseCase;
 
-	public BookshelfService(BookshelfPersistenceAdapter bookshelfPersistenceAdapter, VolumePersistenceAdapter volumePersistenceAdapter) {
-		this.updateBookshelfUseCase = new UpdateBookshelfUseCase(bookshelfPersistenceAdapter, volumePersistenceAdapter);
+	public BookshelfService(BookshelfPersistenceAdapter bookshelfPersistenceAdapter) {
+		this.updateBookshelfUseCase = new UpdateBookshelfUseCase(bookshelfPersistenceAdapter);
 		this.findBookshelfUseCase = new FindBookshelfUseCase(bookshelfPersistenceAdapter);
 	}
 
@@ -28,6 +29,10 @@ public class BookshelfService {
 
 	public Bookshelf update(UUID id, BookshelfService bookshelfService, Bookshelf bookshelf) {
 		return updateBookshelfUseCase.update(id, bookshelfService, bookshelf);
+	}
+
+	public Bookshelf save(Bookshelf bookshelf) {
+		return createBookshelfUseCase.save(bookshelf);
 	}
 
 }
