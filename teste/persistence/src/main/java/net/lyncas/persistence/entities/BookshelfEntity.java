@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Type;
+
 import net.lyncas.domain.entity.Bookshelf;
 
 @Entity(name = "bookshelf")
@@ -16,6 +18,7 @@ public class BookshelfEntity {
 
 	@Id
 	@GeneratedValue
+	@Type(type="uuid-char")
 	private UUID id;
 
 	private String nome;

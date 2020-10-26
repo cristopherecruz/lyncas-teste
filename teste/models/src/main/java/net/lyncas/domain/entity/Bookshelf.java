@@ -14,6 +14,11 @@ public class Bookshelf {
 		this.nome = nome;
 		this.volumes = volumes;
 	}
+	
+	public Bookshelf(String nome, List<Volume> volumes) {
+		this.nome = nome;
+		this.volumes = volumes;
+	}
 
 	public UUID getId() {
 		return id;

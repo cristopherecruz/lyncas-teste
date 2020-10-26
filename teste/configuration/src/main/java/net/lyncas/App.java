@@ -8,16 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+@SpringBootApplication(scanBasePackages = {
+		"net.lyncas.api",
+		"net.lyncas.usecase.services",
+		"net.lyncas.persistence.adapter"
+})
 @EntityScan(basePackages = {
 		"net.lyncas.persistence.entities"
 })
 @EnableJpaRepositories(basePackages = {
 		"net.lyncas.persistence.repositories"
-})
-@SpringBootApplication(scanBasePackages = {
-		"net.lyncas.api",
-		"net.lyncas.usecase.services",
-		"net.lyncas.persistence.adapter"
 })
 public class App {
 

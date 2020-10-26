@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 import net.lyncas.domain.entity.Volume;
 
 @Entity(name = "volume")
@@ -13,6 +15,7 @@ public class VolumeEntity {
 
 	@Id
 	@GeneratedValue
+	@Type(type="uuid-char")
 	private UUID id;
 
 	private String volumeId;

@@ -9,6 +9,9 @@ public class VolumeForm {
 	private String description;
 	private String title;
 
+	public VolumeForm() {
+	}
+
 	public VolumeForm(String volumeId, String thumbnail, String description, String title) {
 		this.volumeId = volumeId;
 		this.thumbnail = thumbnail;

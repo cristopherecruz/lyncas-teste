@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import net.lyncas.api.controllers.dto.VolumeDto;
@@ -12,6 +13,7 @@ import net.lyncas.api.controllers.resource.VolumeResource;
 import net.lyncas.domain.entity.Volume;
 import net.lyncas.usecase.services.VolumeService;
 
+@Controller
 public class VolumeController implements VolumeResource {
 
 	private VolumeService volumeService;
