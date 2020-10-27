@@ -48,7 +48,6 @@ application {
     mainClass.set("net.lyncas.App")
 }
 
-
 test {
 	useJUnitPlatform()
 }

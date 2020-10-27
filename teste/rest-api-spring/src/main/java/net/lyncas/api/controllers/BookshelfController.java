@@ -15,19 +15,16 @@ import net.lyncas.api.controllers.form.BookshelfForm;
 import net.lyncas.api.controllers.resource.BookshelfResource;
 import net.lyncas.domain.entity.Bookshelf;
 import net.lyncas.usecase.services.BookshelfService;
-import net.lyncas.usecase.services.VolumeService;
 
 @Controller
 public class BookshelfController implements BookshelfResource {
 
 	
 	private BookshelfService bookshelfService;
-	private VolumeService volumeService;
 
 	@Autowired
-	public BookshelfController(BookshelfService bookshelfService, VolumeService volumeService) {
+	public BookshelfController(BookshelfService bookshelfService) {
 		this.bookshelfService = bookshelfService;
-		this.volumeService = volumeService;
 	}
 
 	@Override

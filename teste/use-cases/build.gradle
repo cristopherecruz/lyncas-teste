@@ -23,6 +23,10 @@ dependencies {
 
     compile project(':models')
 
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.3.4.RELEASE'
+
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
 }

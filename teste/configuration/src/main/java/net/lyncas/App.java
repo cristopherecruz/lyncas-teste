@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {
 		"net.lyncas.api",
+		"net.lyncas.configuration",
 		"net.lyncas.usecase.services",
 		"net.lyncas.persistence.adapter"
 })

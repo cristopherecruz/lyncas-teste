@@ -39,4 +39,35 @@ public class Bookshelf {
 		this.volumes = volumes;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((volumes == null) ? 0 : volumes.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bookshelf other = (Bookshelf) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (volumes == null) {
+			if (other.volumes != null)
+				return false;
+		} else if (!volumes.equals(other.volumes))
+			return false;
+		return true;
+	}
+
 }

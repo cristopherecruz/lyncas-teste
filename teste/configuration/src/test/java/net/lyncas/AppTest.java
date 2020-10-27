@@ -3,6 +3,7 @@
  */
 package net.lyncas;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,5 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class AppTest {
 	@Test
 	void contextLoads() {
+		Assert.assertTrue(true);
 	}
 }

@@ -31,7 +31,7 @@ public class JpaVolumePersistenceAdapter implements VolumePersistenceAdapter {
 
 	@Override
 	public Optional<Volume> findByVolumeId(String id) {
-		return volumeRepository.findByVolumeId(id);
+		return volumeRepository.findByVolumeId(id).map(VolumeEntity::toDomain);
 	}
 
 }
