@@ -22,6 +22,10 @@ public class Bookshelf {
 	public UUID getId() {
 		return id;
 	}
+	
+	public void setId(UUID uuid) {
+		this.id = uuid;
+	}
 
 	public String getNome() {
 		return nome;
